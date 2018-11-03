@@ -79,6 +79,12 @@
 ```c++
 std::vector<int> v;
 
+vector<int> v1 = {1, 2, 3, 4, 5}; // size is 5
+vector<string> v2; // sizeis0
+vector<Shape*> v3(22); // size is 22; initial element value: nullptr
+vector<double> v4(36,8.9); // size is 36; initial element value: 8.9
+
+
 //---------------------------------
 // General Operations
 //---------------------------------

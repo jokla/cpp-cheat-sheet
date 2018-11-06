@@ -16,7 +16,7 @@
 		- [1.7 Stack `std::stack`](#17-stack-stdstack)
 		- [1.8 Queue `std::queue`](#18-queue-stdqueue)
 		- [1.9 Priority Queue `std::priority_queue`](#19-priority-queue-stdpriority_queue)
-		- [1.10 Heap `std::priority_queue`](#110-heap-stdpriority_queue)
+		- [1.10 Heap with `std::vector`](#110-heap-with-stdvector--make_heap)
 	- [2.0 Trees](#20-trees)
 		- [2.1 Binary Tree](#21-binary-tree)
 		- [2.2 Balanced Trees](#22-balanced-trees)
@@ -35,7 +35,6 @@
 		- [4.5 Quicksort](#45-quicksort)
 
 <!-- /TOC -->
-
 
 ## 1.0 Data Structures
 ### 1.1 Overview

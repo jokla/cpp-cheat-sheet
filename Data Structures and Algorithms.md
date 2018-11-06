@@ -453,7 +453,56 @@ q.pop();
 * Ex: Medical emergencies (gunshot wound vs. broken arm)
 
 **Notes**
-* Often implemented as a `std::vector`
+* A heap is essentially an instance of a priority queue
+
+<TABLE>
+   <TR>
+      <TD>
+         <TT>q.top();</TT>
+      </TD><TD>
+         Return the "biggest" element.
+      </TD><TD>
+         O(1)
+      </TD></TR>
+   <TR>
+      <TD>
+         <TT>q.size();</TT>
+      </TD><TD>
+         Return current number of elements.
+      </TD><TD>
+         O(1)
+      </TD></TR>
+   <TR>
+      <TD>
+         <TT>q.empty();</TT>
+      </TD><TD>
+         Return true if priority queue is empty.
+      </TD><TD>
+         O(1)
+      </TD></TR>
+</TABLE>
+
+<H3>Modifiers</H3>
+
+<TABLE>
+   <TR>
+      <TD>
+         <TT>q.push(value);</TT>
+      </TD><TD>
+         Add value to priority queue.
+      </TD><TD>
+         O(log n)
+      </TD></TR>
+   <TR>
+      <TD>
+         <TT>q.pop();</TT>
+      </TD><TD>
+         Remove biggest value.
+      </TD><TD>
+         O(log n)
+      </TD></TR>
+</TABLE>
+
 
 **Example Code**
 ```c++
@@ -476,13 +525,29 @@ unsigned int size = p.size();
 p.pop();
 ```
 -------------------------------------------------------
-### 1.10 Heap `std::priority_queue`
+### 1.10 Heap with `std::vector` + `make_heap()`
 **Notes**
 * A heap is essentially an instance of a priority queue
 * A **min** heap is structured with the root node as the smallest and each child subsequently smaller than its parent
 * A **max** heap is structured with the root node as the largest and each child subsequently larger than its parent
-* A min heap could be used for *Smallest Job First* CPU Scheduling
-* A max heap could be used for *Priority* CPU Scheduling
+* Up to the user to maintain the vector a binary heap with `std::push_heap()` and `std::pop_heap()`
+* Possibility to have direct access to the elemets and vector operations
+
+```c++
+// Convert vector to heap
+std::vector<int> v1 = {20, 30, 40, 25, 15}; 
+std::make_heap(v1.begin(), v1.end()); // Max heap
+// Add greater<int>() for a min Heap 
+
+// Inser an element
+v.push_back(6);
+std::push_heap(v.begin(), v.end());
+
+// Extract the biggest element (root)
+std::pop_heap(v.begin(), v.end()); // moves the largest to the end 
+int largest = v.back();
+v.pop_back();  // actually removes the largest element
+```
 
 **Max Heap Example (using a binary tree)**
 

@@ -505,7 +505,9 @@ q.pop();
 
 **Example Code**
 ```c++
-std::priority_queue<int> p;
+std::priority_queue<int> p; // Max heap
+// std::priority_queue <int, std::vector<int>, std::greater<int> > pq; // Min heap
+
 
 //---------------------------------
 // General Operations

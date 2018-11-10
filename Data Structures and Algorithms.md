@@ -247,22 +247,16 @@ l.reverse();
 ```
 -------------------------------------------------------
 ### 1.5 Map `std::map` and `std::unordered_map`
-**Use for**
-* Key-value pairs
-* Constant lookups by key
-* Searching if key/value exists
-* Removing duplicates
-* `std::map`
-    * Ordered map
-* `std::unordered_map`
-    * Hash table
 
-**Do not use for**
-* Sorting
+* `std::map` (Self-balancing binary search tree)
+    * A map requires an ordering function (the default is < ) and yields an ordered sequence.
 
-**Notes**
-* Typically ordered maps (`std::map`) are slower than unordered maps (`std::unordered_map`)
-* Maps are typically implemented as *binary search trees*
+* `std::unordered_map` (Hast table)
+    * Optimized	for lookup with	a key.
+    * A unordered_map requires a hash function and does not maintain an order among its elements.	
+    * The standard library provides a default hash function for	standard-library types.
+
+
 
 **Time Complexity**
 
@@ -285,6 +279,8 @@ l.reverse();
 | Find/Remove Value   |              -- |
 
 **Example Code**
+
+**`std::map`**
 ```c++
 std::map<std::string, std::string> m;
 

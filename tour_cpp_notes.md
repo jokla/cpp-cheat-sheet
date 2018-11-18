@@ -7,7 +7,7 @@ at	run	time.
 by	the	compiler. The idea is to spend time in compilation and save time at run time.
 
 ## 1.7 For Loops
-```
+```c++
 void print()
 {
     int v[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };

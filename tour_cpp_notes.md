@@ -43,7 +43,7 @@ bool has_c(const string & s, char c) //	does s contain the character c?
 }
 ```   
    
--`find_if`: looking for element fulfilling a specified requirement. We can use a predicate
+- `find_if`: looking for element fulfilling a specified requirement. We can use a predicate
 ```c++
 struct Greater_than {
     int val;

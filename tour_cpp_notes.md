@@ -60,6 +60,7 @@ Or a lamba function:
 ```c++
 auto p = find_if(m.begin(), m.end(), [](const pair<string, int>& r) { return r.second > 23; });
 ```
+[] is the capture list. It can be: [] capture nothing, [&] capture all local names by reference, [=] capture all by copy, [=x] or [&] to capture only one variable.
 
 
 - `find_all`: (to implement) find all the occurences and return them.

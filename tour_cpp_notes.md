@@ -8,7 +8,7 @@ by	the	compiler. The idea is to spend time in compilation and save time at run t
 
 ## 1.7 For Loops
 ```c++
-void print()
+vod print()
 {
     int v[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
@@ -26,3 +26,49 @@ void print()
 
 ## 1.7 The Null Pointer
 - Use nullptr instead of NULL or 0
+
+# Essantial Operation
+
+## Class Constructors 5.1
+
+- `=default`  (force the compiler to use a constructor as default one) and `=delete` (disable the possibility to use certain functions) see [here](https://www.bogotobogo.com/cplusplus/C11/C11_default_delete_specifier.php) 
+
+# Algoritms
+
+- `find`
+```c++
+bool has_c(const string & s, char c) //	does s contain the character c?
+{
+  return find(s.begin(), s.end(), c) != s.end();
+}
+```
+
+-`find_if`: looking for element fulfilling a specified requirement.
+    - We can use a predicate
+```c++
+struct Greater_than {
+    int val;
+    Greater_than(int v): val{ v } { }
+    bool operator()(const pair<string, int>& r) const { return r.second > val; }
+};
+
+(...)
+
+map<string, int> m
+auto p = find_if(m.begin(), m.end(), Greater_than{ 42 });
+```
+
+
+
+- `find_all`: (to implement) find all the occurences and return them.
+
+```c++
+vector<string::iterator> find_all(string& s, char c) //	find all occurrences of c in s
+{
+    vector<string::iterator> res;
+    for (auto p = s.begin(); p != s.end(); ++p)
+        if (*p == c)
+            res.push_back(p);
+    return res;
+}
+```

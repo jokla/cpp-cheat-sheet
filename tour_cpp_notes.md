@@ -27,7 +27,7 @@ vod print()
 ## 1.7 The Null Pointer
 - Use nullptr instead of NULL or 0
 
-# Essantial Operation
+# Essential Operation
 
 ## Class Constructors 5.1
 
@@ -41,10 +41,9 @@ bool has_c(const string & s, char c) //	does s contain the character c?
 {
   return find(s.begin(), s.end(), c) != s.end();
 }
-```
-
--`find_if`: looking for element fulfilling a specified requirement.
-    - We can use a predicate
+```   
+   
+-`find_if`: looking for element fulfilling a specified requirement. We can use a predicate
 ```c++
 struct Greater_than {
     int val;
@@ -55,9 +54,12 @@ struct Greater_than {
 (...)
 
 map<string, int> m
-auto p = find_if(m.begin(), m.end(), Greater_than{ 42 });
+auto p = find_if(m.begin(), m.end(), Greater_than{ 23 });
 ```
-
+Or a lamba function:
+```c++
+auto p = find_if(m.begin(), m.end(), [](const pair<string, int>& r) { return r.second > 23; });
+```
 
 
 - `find_all`: (to implement) find all the occurences and return them.

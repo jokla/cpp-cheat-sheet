@@ -94,3 +94,14 @@ vector<string::iterator> find_all(string& s, char c) //	find all occurrences of 
 - next_permutation(first_iterator, last_iterator) – This modified the vector to its next permutation.
 - prev_permutation(first_iterator, last_iterator) – This modified the vector to its previous permutation.
 - distance(first_iterator,desired_position) – It returns the distance of desired position from the first iterator.This function is very useful while finding the index.
+
+
+# Polymorphism
+
+## Compile time polymorphism:
+
+- Function Overloading
+- Operator Overloading
+
+# Runtime polymorphism: 
+- Function overriding (derived class and virtual functions)

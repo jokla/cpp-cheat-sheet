@@ -164,3 +164,21 @@ int main () {
     return 0;
 }
 ```
+- Get a string from input and convert to a number
+
+```c++
+ #include <iostream>
+ #include <string>
+ #include <sstream>
+
+ int main ()
+ {
+   std::string stringLength;
+   float inches = 0;
+
+   std::cout << "Enter number of inches: ";
+   std::getline (std::cin,stringLength);
+   std::stringstream(stringLength) >> inches;
+   return 0;
+ }
+ ```

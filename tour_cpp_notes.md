@@ -116,6 +116,14 @@ std::cout<<"Ints"<<std::setw(15)<<"Floats"<<std::setw(15)<<"Doubles"<< "\n";
 std::cout<<"Int"<<"\tFloats"<<"\tDoubles\n";
 std::cout<< a <<"\t"<< b <<"\t"<< c <<"\n"
 ```
+# Print a vector
+```c++
+std::vector<int> v;
+
+// Fill vector
+
+std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+```
 
 # Reading and writing to a file
 File IO Steps:

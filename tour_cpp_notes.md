@@ -214,24 +214,20 @@ auto test(T value1, S value2) -> decltype(value1 + value2) {
 	return value1 + value2;
 }
 
-int get()
-{
-	return 999;
+int get(){
+	return 555;
 }
 
-auto test2() -> decltype(get())
-{
+auto test2() -> decltype(get()){
 	return get();
 }
 
 int main() {
-	auto value = 7;
-	auto text = "Hello";
+	auto value = 6;
+	auto text = "Hi";
 
-	cout << test(5, 6) << endl;
-	
+	cout << test(4, 5) << endl;
 	cout << test2() << endl;
-
 	return 0;
 }
 ```

@@ -190,3 +190,48 @@ int main () {
    return 0;
  }
  ```
+ 
+ # C++11
+
+ ## Decltype And Typeid
+ 
+* **decltype** is a way to specify a type: it gives you back a type which corresponds to the type of the expression
+ 
+```c++ 
+int foo();
+int n = 10;
+decltype(n) a = 20;             // a is an "int" [id-expression]
+decltype((n)) b = a;            // b is an "int &" [(n) is an lvalue]
+decltype(foo()) c = foo();      // c is an "int" [rvalue]
+```
+* decltype can be useful to define the return type of a function with auto
+```c++ 
+#include <iostream>
+using namespace std;
+
+template<class T, class S>
+auto test(T value1, S value2) -> decltype(value1 + value2) {
+	return value1 + value2;
+}
+
+int get()
+{
+	return 999;
+}
+
+auto test2() -> decltype(get())
+{
+	return get();
+}
+
+int main() {
+	auto value = 7;
+	auto text = "Hello";
+
+	cout << test(5, 6) << endl;
+	
+	cout << test2() << endl;
+
+	return 0;
+}
+```

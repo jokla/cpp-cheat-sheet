@@ -152,7 +152,7 @@ int tail = d.back();        // tail
 unsigned int size = d.size();
 
 // Iterate
-for(std::vector<int>::iterator it = d.begin(); it != d.end(); it++) {
+for(std::deque<int>::iterator it = d.begin(); it != d.end(); it++) {
     std::cout << *it << std::endl;
 }
 
@@ -201,7 +201,7 @@ l.push_back(value);                     // tail
 
 // Access head, index, tail
 int head = l.front();                                           // head
-int value = std::list<int>::iterator it = l.begin() + index;    // index
+int value = std::next(l.begin(), index);		        // index
 int tail = l.back();                                            // tail
 
 // Size
@@ -298,7 +298,7 @@ std::string value = m.at("key");
 unsigned int size = m.size();
 
 // Iterate
-for(std::map<int>::iterator it = m.begin(); it != m.end(); it++) {
+for(std::map<std::string, std::string>::iterator it = m.begin(); it != m.end(); it++) {
     std::cout << *it << std::endl;
 }
 
@@ -545,7 +545,6 @@ std::pop_heap(v.begin(), v.end()); // moves the largest to the end
 int largest = v.back();
 v.pop_back();  // actually removes the largest element
 ```
-
 **Max Heap Example (using a binary tree)**
 
 ![MaxHeap](General/MaxHeap.png)
@@ -644,6 +643,8 @@ v.pop_back();  // actually removes the largest element
 
 -------------------------------------------------------
 ### 3.3 Knapsack Problem
+
+[Implementation](NP-complete/knapsack/)
 
 -------------------------------------------------------
 

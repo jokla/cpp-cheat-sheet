@@ -40,3 +40,5 @@ auto add(T1 fir, T2 sec){
 
 ## typeid 
 It can be used to retrieve the type of a variable or object at runtime. To use typeid, we must include the <typeinfo> header. The operator returns a type_info object that has various methods of its own.
+
+# 6) 

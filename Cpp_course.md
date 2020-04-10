@@ -47,3 +47,44 @@ Variables can be declared directly with {}
 std::string str{"my String"};
 int i{2011};
 ```
+
+# 7) const, constexpr, and volatile
+## const
+- Any variable initialized with the const keyword cannot be modified later on. It is constant.
+- Const Variables or attributes of a class must always be initialized.
+- Const class methods can only be invoked by const instances of the class.
+- Both the pointer and the data being pointed to can be const.
+  - `int const* ip = &i;` the value being pointed to is constant.
+  - `int* const p = &i;` the pointer is constant. It cannot point to a different pointer.
+  - `const int* const p = &i;` `p` is a constant pointer, `* const` points to an int that is const.
+  ## constexpr
+A constant expression:
+- can be evaluated at compile time
+- gives the compiler deep insight into the code
+- is implicitly thread-safe
+- can be constructed in the read-only memory (ROM-able)
+## Variables
+A `constexpr` variable:
+- is implicitly const.
+- has to be initialized.
+- requires a constant expression for initialization.
+```c++ constexpr double myDouble= 5.2;```
+## User-Defined types
+Objects are created by the invocation of the constructor. The constructor has a few special rules.
+A constexpr constructor:
+- can only be invoked with constant expressions.
+- cannot use exception handling.
+- has to be declared as default or delete or the function body must be empty (C++11).
+```c++
+struct MyDouble{
+  double myVal;
+  constexpr MyDouble(double v): myVal(v){} 
+  constexpr double getVal(){return myVal;}
+};
+```
+## Functions
+`constexpr` functions are functions that have the potential to run at compile time. This means we can perform a lot of calculations at compile time, with the results available at runtime and stored as a constant in the ROM. In addition, constexpr functions are implicitly inline.
+# volatile
+The volatile variable is one whose value may change due to an external event.
+
+

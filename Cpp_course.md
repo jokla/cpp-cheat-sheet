@@ -57,19 +57,19 @@ int i{2011};
   - `int const* ip = &i;` the value being pointed to is constant.
   - `int* const p = &i;` the pointer is constant. It cannot point to a different pointer.
   - `const int* const p = &i;` `p` is a constant pointer, `* const` points to an int that is const.
-  ## constexpr
+## constexpr
 A constant expression:
 - can be evaluated at compile time
 - gives the compiler deep insight into the code
 - is implicitly thread-safe
 - can be constructed in the read-only memory (ROM-able)
-## Variables
+### Variables
 A `constexpr` variable:
 - is implicitly const.
 - has to be initialized.
 - requires a constant expression for initialization.
 ```c++ constexpr double myDouble= 5.2;```
-## User-Defined types
+### User-Defined types
 Objects are created by the invocation of the constructor. The constructor has a few special rules.
 A constexpr constructor:
 - can only be invoked with constant expressions.
@@ -82,9 +82,38 @@ struct MyDouble{
   constexpr double getVal(){return myVal;}
 };
 ```
-## Functions
+### Functions
 `constexpr` functions are functions that have the potential to run at compile time. This means we can perform a lot of calculations at compile time, with the results available at runtime and stored as a constant in the ROM. In addition, constexpr functions are implicitly inline.
-# volatile
-The volatile variable is one whose value may change due to an external event.
+## volatile
+The volatile variable is one whose value may change due to an external event. It is needed if you are reading from a spot in memory that, say, a completely separate process/device/whatever may write to.
 
+# 7) Move Semantic and Perfect Forwarding
+- *Rvalues* are
+  - temporary objects.
+  - objects without a name.
+  - objects from which we cannot get an address.
+  - always on the right side of an assignment operation.
 
+The rest are *lvalues*. They can only be on the left side of an assignment operator.
+
+## Lvalue and Rvalue references
+- Lvalue references are declared by one & symbol.
+- Rvalue references are declared by two && symbols.
+
+### Rvalue references: applications 
+#### Move semantics
+- Cheap moving of objects instead of expensive copying.
+- No memory allocation and deallocation.
+- Non-copyable but movable objects can be transferred by value.
+
+The function `std::move` moves its resource.
+
+- Needs the header <utility>.
+- Converts the type of its argument into a rvalue reference.
+- The compiler applies the move semantic to the rvalue reference.
+- Is a static_cast to a rvalue reference under the hood.
+  
+ Move semantic is significantly faster than the copy semantic since we are only redirecting the pointer to another vector and assigning the correct size. To be more precise, the costs of move semantics are independent of the size of the data structure.
+
+#### Perfect forwarding
+- Forward an object without changing its rvalue/lvalue nature. This helps in function templates.
